@@ -85,8 +85,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1600px;
-  margin: 0 auto;
+  width: 100%; /* Use full width */
+  margin: 0;
   padding: 0 20px;
   height: 100%;
 }
@@ -109,6 +109,26 @@ body {
   font-size: 16px;
   font-weight: 600;
   color: var(--primary-blue);
+}
+
+/* Update logo text color with gradient effect */
+.dark-theme .logo-text {
+  background: linear-gradient(90deg, #22C6D4, #B1D007, #22C6D4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 600;
+  background-size: 200% auto;
+  animation: gradient 3s linear infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .doc-title {
@@ -162,9 +182,8 @@ body {
 .doc-container {
   display: flex;
   flex: 1;
-  max-width: 1600px;
-  margin: 0 auto;
   width: 100%;
+  margin: 0; /* Remove auto margins */
   padding-top: var(--header-height);
 }
 
@@ -382,7 +401,8 @@ body {
   margin-left: var(--sidebar-width);
   background-color: var(--background-light);
   min-height: calc(100vh - var(--header-height));
-  max-width: calc(100% - var(--sidebar-width));
+  width: calc(100% - var(--sidebar-width)); /* Ensure it takes full available width */
+  max-width: none; /* Remove max-width limitation */
 }
 
 /* Breadcrumbs - Okta-like */

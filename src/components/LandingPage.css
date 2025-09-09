@@ -40,9 +40,33 @@
   margin-right: 10px;
 }
 
-.logo-text {
+/* Logo styling with stronger gradient effect */
+.logo-link .logo-text {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 600; /* Increased from 500 */
+  background: linear-gradient(90deg, #22C6D4, #B1D007, #22C6D4);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  background-size: 200% auto;
+  animation: gradient 3s linear infinite;
+  text-shadow: 0 0 1px rgba(0,0,0,0.1); /* Subtle shadow to improve readability */
+  display: inline-block; /* Important for gradient to work properly */
+  padding: 2px 0; /* Slight padding to ensure gradient shows fully */
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
 
 /* Main content styles */
