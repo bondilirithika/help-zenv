@@ -443,6 +443,7 @@ body {
   color: var(--text-primary);
   font-size: 16px;
   line-height: 1.7;
+  text-align: left;
 }
 
 .markdown-content h1 {
@@ -519,38 +520,83 @@ body {
 }
 
 .code-block {
-  margin: 0 0 24px 0;
-  border-radius: 8px;
+  margin: 20px 0;
+  border-radius: 6px;
   overflow: hidden;
-  background-color: var(--code-bg);
-  border: 1px solid var(--code-border);
+  background-color: #161b22;
+  border: 1px solid #30363d;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  text-align: left;
 }
 
 .code-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  background-color: rgba(0, 0, 0, 0.2);
-  border-bottom: 1px solid var(--code-border);
+  padding: 8px 16px;
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+}
+
+.code-language {
+  font-size: 12px;
+  color: #d1d5db;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .copy-button {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  border: 1px solid #30363d;
   border-radius: 4px;
   font-size: 12px;
   padding: 4px 10px;
-  color: var(--text-secondary);
+  color: #7d8590;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .copy-button:hover {
-  background-color: var(--highlight-color);
-  color: white;
-  border-color: var(--highlight-color);
+  background-color: #2d333b;
+  color: #c9d1d9;
+  border-color: #7d8590;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 16px;
+  overflow-x: auto;
+  background-color: #161b22;
+  text-align: left;
+}
+
+/* Ensure all markdown content aligns left */
+.markdown-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Make inline code distinct from code blocks */
+:not(pre) > code {
+  background-color: #2d333b;
+  color: #e6edf3;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-size: 85%;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+/* Ensure hljs styles are properly applied */
+.hljs {
+  background: transparent !important;
 }
 
 /* Add better note/callout styling */
@@ -678,6 +724,89 @@ body {
 .loading-text {
   font-size: 14px;
   color: var(--text-secondary);
+}
+
+/* Add anchor link styles for headings */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  position: relative;
+}
+
+.markdown-content .anchor {
+  float: left;
+  padding-right: 4px;
+  margin-left: -20px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.1s ease-in;
+}
+
+.markdown-content h1:hover .anchor,
+.markdown-content h2:hover .anchor,
+.markdown-content h3:hover .anchor,
+.markdown-content h4:hover .anchor,
+.markdown-content h5:hover .anchor,
+.markdown-content h6:hover .anchor {
+  opacity: 1;
+}
+
+.markdown-content .header-link::after {
+  content: '#';
+  font-size: 16px;
+  color: #58a6ff;
+}
+
+/* ASCII diagram styling */
+.ascii-diagram {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.2;
+  white-space: pre;
+  overflow-x: auto;
+  padding: 16px;
+  background-color: #161b22;
+  margin: 0;
+  border: none;
+  color: #e6edf3;
+}
+
+.diagram-block {
+  margin: 20px 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  text-align: left;
+}
+
+.diagram-block .code-header {
+  background-color: #1f2937;
+  border-bottom: 1px solid #374151;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Fix for any ASCII art to ensure it displays properly */
+.markdown-content pre.ascii-diagram {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.markdown-content code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  white-space: pre-wrap;
+}
+
+.markdown-content pre code {
+  white-space: pre;
 }
 
 /* Responsive styles */
