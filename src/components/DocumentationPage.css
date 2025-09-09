@@ -1,0 +1,739 @@
+/* Documentation page styling - Okta-inspired */
+:root {
+  --sidebar-width: 280px;
+  --header-height: 60px;
+  --primary-blue: #00297a;
+  --secondary-blue: #0074b3;
+  --text-primary: #333333;
+  --text-secondary: #5a5a5a;
+  --text-muted: #767676;
+  --border-color: #e4e4e4;
+  --highlight-color: #0074b3;
+  --background-light: #ffffff;
+  --background-light-gray: #f9f9f9;
+  --background-gray: #f5f5f5;
+  --code-bg: #f5f5f5;
+  --code-inline-bg: #f0f0f0;
+  --code-text: #333;
+  --code-border: #e0e0e0;
+  --warning-bg: #fff8e6;
+  --warning-border: #f5c400;
+  --note-bg: #e8f4f8;
+  --note-border: #00a6d7;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+}
+
+/* Apply dark theme styles */
+.dark-theme {
+  --text-primary: #f3f3f3;
+  --text-secondary: #b0b0b0;
+  --text-muted: #757575;
+  --border-color: #333333;
+  --highlight-color: #22C6D4;
+  --background-light: #1a1a1a;
+  --background-light-gray: #252525;
+  --background-gray: #202020;
+  --code-bg: #2d2d2d;
+  --code-inline-bg: #333333;
+  --code-text: #f0f0f0;
+  --code-border: #444;
+  --warning-bg: #3d3000;
+  --warning-border: #f5c400;
+  --note-bg: #002b36;
+  --note-border: #00a6d7;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 16px;
+  background-color: var(--background-light);
+}
+
+/* Documentation page layout */
+.doc-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-light);
+}
+
+/* Header styles */
+.doc-header {
+  background-color: var(--background-light);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.doc-title {
+  display: flex;
+  align-items: center;
+}
+
+.doc-title-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menu-icon,
+.menu-icon:before,
+.menu-icon:after {
+  width: 18px;
+  height: 2px;
+  background-color: var(--text-primary);
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.menu-icon {
+  position: relative;
+}
+
+.menu-icon:before,
+.menu-icon:after {
+  content: '';
+  position: absolute;
+}
+
+.menu-icon:before {
+  top: -5px;
+}
+
+.menu-icon:after {
+  bottom: -5px;
+}
+
+/* Doc container (main layout) */
+.doc-container {
+  display: flex;
+  flex: 1;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  padding-top: var(--header-height);
+}
+
+/* Sidebar styles - Okta-like */
+.doc-sidebar {
+  width: var(--sidebar-width);
+  border-right: 1px solid var(--border-color);
+  height: calc(100vh - var(--header-height));
+  position: fixed;
+  top: var(--header-height);
+  overflow-y: auto;
+  background-color: var(--background-light);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+  transition: transform 0.3s ease;
+  z-index: 10;
+  padding-bottom: 20px;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.doc-sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.doc-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.doc-sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 6px;
+}
+
+.sidebar-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-light);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.product-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.close-sidebar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+/* Okta-style section navigation */
+.section-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.section-item {
+  margin: 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-header button {
+  flex: 1;
+  text-align: left;
+  padding: 10px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+}
+
+.section-header button:hover {
+  color: var(--highlight-color);
+  background-color: var(--background-light-gray);
+}
+
+.section-header button.active {
+  color: var(--highlight-color);
+  font-weight: 600;
+  border-left: 3px solid var(--highlight-color);
+  padding-left: 17px; /* 20px - 3px border */
+}
+
+.section-toggle {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 10px;
+  user-select: none;
+  margin-right: 12px;
+  opacity: 0.7;
+  transition: all 0.15s ease;
+}
+
+.section-toggle:hover {
+  opacity: 1;
+  color: var(--highlight-color);
+}
+
+.subsection-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 20px;
+  border-left: 1px solid var(--border-color);
+  margin-left: 20px;
+}
+
+.subsection-item {
+  margin: 0;
+}
+
+.subsection-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 15px 8px 20px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.15s ease;
+  border-radius: 0;
+  outline: none;
+}
+
+.subsection-link:hover {
+  color: var(--highlight-color);
+}
+
+.subsection-link::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--border-color);
+  transition: background-color 0.15s ease;
+}
+
+.subsection-link:hover::before {
+  background-color: var(--highlight-color);
+}
+
+.subsection-link.active {
+  color: var(--highlight-color) !important;
+  font-weight: 600;
+}
+
+.subsection-link.active::before {
+  background-color: var(--highlight-color);
+}
+
+.sidebar-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border-color);
+  margin-top: 10px;
+  background-color: var(--background-light);
+}
+
+.back-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s ease;
+}
+
+.back-link:hover {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+.back-link::before {
+  content: "←";
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+/* Doc content area - Okta-like */
+.doc-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: var(--sidebar-width);
+  background-color: var(--background-light);
+  min-height: calc(100vh - var(--header-height));
+  max-width: calc(100% - var(--sidebar-width));
+}
+
+/* Breadcrumbs - Okta-like */
+.doc-breadcrumbs {
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.doc-breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.doc-breadcrumbs a:hover {
+  color: var(--highlight-color);
+  text-decoration: underline;
+}
+
+.doc-breadcrumbs .separator {
+  margin: 0 3px;
+  color: var(--text-muted);
+}
+
+.doc-breadcrumbs .current {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Markdown styling - Okta-like documentation */
+.markdown-content {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.markdown-content h1 {
+  font-size: 32px;
+  margin: 16px 0 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left; /* Left-align headings */
+}
+
+.markdown-content h2 {
+  font-size: 24px;
+  margin: 48px 0 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.35;
+  text-align: left;
+  position: relative;
+}
+
+.markdown-content h3 {
+  font-size: 20px;
+  margin: 32px 0 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  text-align: left;
+}
+
+.markdown-content h4 {
+  font-size: 18px;
+  margin: 24px 0 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.markdown-content p {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.markdown-content strong {
+  font-weight: 600;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0 0 24px 24px;
+  font-size: 16px;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+.markdown-content li {
+  margin-bottom: 8px;
+  line-height: 1.7;
+}
+
+/* Code blocks - Okta-like */
+.markdown-content code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 14px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: var(--code-inline-bg);
+  color: var(--code-text);
+}
+
+.code-block {
+  margin: 0 0 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--code-bg);
+  border: 1px solid var(--code-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--code-border);
+}
+
+.copy-button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 4px 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.copy-button:hover {
+  background-color: var(--highlight-color);
+  color: white;
+  border-color: var(--highlight-color);
+}
+
+/* Add better note/callout styling */
+.markdown-content blockquote {
+  border-left: 4px solid var(--note-border);
+  padding: 16px 20px;
+  background-color: var(--note-bg);
+  margin: 24px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+/* Enhance breadcrumbs */
+.doc-breadcrumbs {
+  margin-bottom: 32px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Improve sidebar styling */
+.doc-sidebar {
+  width: var(--sidebar-width);
+  border-right: 1px solid var(--border-color);
+  height: calc(100vh - var(--header-height));
+  position: fixed;
+  top: var(--header-height);
+  overflow-y: auto;
+  background-color: var(--background-light);
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+  transition: transform 0.3s ease;
+  z-index: 10;
+  padding-bottom: 20px;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add table styles similar to Okta */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+  font-size: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.markdown-content table th,
+.markdown-content table td {
+  border: 1px solid var(--border-color);
+  padding: 12px 16px;
+}
+
+.markdown-content table th {
+  background-color: var(--background-light-gray);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+}
+
+/* Add highlighted text styling */
+.markdown-content mark {
+  background-color: rgba(255, 208, 0, 0.2);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+/* Add API method tags like Okta has */
+.api-method {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 8px;
+  font-family: var(--font-mono);
+}
+
+.api-get {
+  background-color: rgba(0, 200, 100, 0.2);
+  color: #00c864;
+}
+
+.api-post {
+  background-color: rgba(0, 116, 255, 0.2);
+  color: #0074ff;
+}
+
+.api-put {
+  background-color: rgba(255, 153, 0, 0.2);
+  color: #ff9900;
+}
+
+.api-delete {
+  background-color: rgba(255, 45, 85, 0.2);
+  color: #ff2d55;
+}
+
+/* Loading indicator - Okta-like */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--background-light-gray);
+  border-radius: 50%;
+  border-top-color: var(--highlight-color);
+  animation: spin 1s ease-in-out infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .doc-content {
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .doc-sidebar {
+    transform: translateX(-100%);
+    width: 300px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .doc-sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  
+  .close-sidebar {
+    display: block;
+  }
+  
+  .doc-content {
+    margin-left: 0;
+    max-width: 100%;
+    padding: 24px;
+  }
+  
+  .markdown-content h1 {
+    font-size: 24px;
+  }
+  
+  .markdown-content h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .doc-content {
+    padding: 20px 16px;
+  }
+  
+  .markdown-content h1 {
+    font-size: 22px;
+  }
+  
+  .markdown-content h2 {
+    font-size: 18px;
+  }
+  
+  .markdown-content pre {
+    padding: 12px;
+  }
+}
+
+/* Dark/Light theme toggle for future use */
+.theme-toggle {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle:hover {
+  color: var(--highlight-color);
+}
