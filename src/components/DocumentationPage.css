@@ -248,6 +248,7 @@ body {
 /* Okta-style section navigation */
 .section-list {
   list-style: none;
+  padding-left: 0;
   margin: 0;
   padding: 10px 0;
 }
@@ -257,9 +258,16 @@ body {
 }
 
 .section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-weight: 500;
+  padding: 8px 0;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+  border-radius: 4px;
+}
+
+.section-header:hover {
+  background: var(--background-light-gray);
 }
 
 .section-header button {
@@ -290,31 +298,34 @@ body {
 }
 
 .section-toggle {
-  width: 24px;
-  height: 24px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   color: var(--text-secondary);
-  font-size: 10px;
+  font-size: 12px;
   user-select: none;
-  margin-right: 12px;
-  opacity: 0.7;
-  transition: all 0.15s ease;
+  margin-right: 8px;
+  opacity: 0.8;
+  transition: color 0.15s;
 }
 
 .section-toggle:hover {
-  opacity: 1;
   color: var(--highlight-color);
+  opacity: 1;
 }
 
 .subsection-list {
   list-style: none;
   margin: 0;
-  padding: 0 0 0 20px;
+  padding-left: 0;
+}
+
+.subsection-list {
   border-left: 1px solid var(--border-color);
-  margin-left: 20px;
+  margin-left: 12px;
+  padding-left: 8px;
 }
 
 .subsection-item {
@@ -325,46 +336,27 @@ body {
   display: block;
   width: 100%;
   text-align: left;
-  padding: 8px 15px 8px 20px;
-  font-size: 13px;
+  padding: 7px 15px 7px 20px;
+  font-size: 14px;
   color: var(--text-secondary);
   background: none;
   border: none;
   cursor: pointer;
   position: relative;
   transition: all 0.15s ease;
-  border-radius: 0;
+  border-radius: 4px;
   outline: none;
 }
 
 .subsection-link:hover {
   color: var(--highlight-color);
-}
-
-.subsection-link::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: var(--border-color);
-  transition: background-color 0.15s ease;
-}
-
-.subsection-link:hover::before {
-  background-color: var(--highlight-color);
+  background: var(--background-light-gray);
 }
 
 .subsection-link.active {
   color: var(--highlight-color) !important;
   font-weight: 600;
-}
-
-.subsection-link.active::before {
-  background-color: var(--highlight-color);
+  background: var(--background-light-gray);
 }
 
 .sidebar-footer {
@@ -507,6 +499,45 @@ body {
 .markdown-content li {
   margin-bottom: 8px;
   line-height: 1.7;
+}
+
+/* Add or update these styles for headings */
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-primary, #e6edf3);
+  scroll-margin-top: 100px;
+}
+
+.markdown-content h1 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color, #30363d);
+  margin-top: 2rem;
+}
+
+.markdown-content h2 {
+  font-size: 1.5rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border-color, #30363d);
+  margin-top: 2rem;
+}
+
+.markdown-content h3 {
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.markdown-content h4 {
+  font-size: 1rem;
 }
 
 /* Code blocks - Okta-like */

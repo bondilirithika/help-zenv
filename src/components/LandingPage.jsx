@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { products } from '../data/ProductData';
 import './LandingPage.css';
 
+const COLORS = [
+  '#22C6D4', // teal
+  '#B1D007', // lime
+  '#FFB347', // orange
+  '#FF6F61', // coral
+  '#8F6ED5', // purple
+  '#F67280', // pink
+  '#4ECDC4', // turquoise
+  '#5567FF', // blue
+];
+
 const LandingPage = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    fetch('/documentation/products.json')
+      .then(res => res.json())
+      .then(setProducts);
+  }, []);
   return (
     <div className="landing-container">
       <header className="main-header">
@@ -18,10 +34,14 @@ const LandingPage = () => {
       <main className="main-content">
         <div className="content-wrapper">
           <h1 className="main-title">Documentation</h1>
-          
           <div className="products-list">
-            {products.map(product => (
-              <Link to={`/docs/${product.id}/overview`} className="product-item" key={product.id} style={{ borderLeft: `3px solid ${product.color}` }}>
+            {products.map((product, idx) => (
+              <Link
+                to={`/docs/${product.id}/overview`}
+                className="product-item"
+                key={product.id}
+                style={{ borderLeft: `6px solid ${COLORS[idx % COLORS.length]}` }}
+              >
                 <h2 className="product-name">{product.name}</h2>
                 <p className="product-description">{product.description}</p>
               </Link>

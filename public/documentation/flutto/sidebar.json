@@ -1,0 +1,38 @@
+[
+  {
+    "type": "folder",
+    "name": "abc",
+    "children": [
+      {
+        "type": "file",
+        "name": "abc",
+        "file": "abc.md"
+      },
+      {
+        "type": "file",
+        "name": "def",
+        "file": "def.md"
+      }
+    ]
+  },
+  {
+    "type": "file",
+    "name": "getting-started",
+    "file": "getting-started.md"
+  },
+  {
+    "type": "file",
+    "name": "installation",
+    "file": "installation.md"
+  },
+  {
+    "type": "file",
+    "name": "overview",
+    "file": "overview.md"
+  },
+  {
+    "type": "file",
+    "name": "system-requirements",
+    "file": "system-requirements.md"
+  }
+]
