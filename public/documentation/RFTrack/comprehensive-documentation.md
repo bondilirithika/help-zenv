@@ -1,28 +1,5 @@
 # RFID Hotel Access Control System - Comprehensive Documentation
 
-## Table of Contents
-
-1. [Executive Summary](#executive-summary)
-2. [System Overview](#system-overview)
-3. [Architecture & Technology Stack](#architecture--technology-stack)
-4. [Features & Capabilities](#features--capabilities)
-5. [Database Schema](#database-schema)
-6. [API Documentation](#api-documentation)
-7. [Multi-Tenancy Implementation](#multi-tenancy-implementation)
-8. [Security Framework](#security-framework)
-9. [Installation & Setup](#installation--setup)
-10. [User Management & Roles](#user-management--roles)
-11. [MQTT Integration & IoT Connectivity](#mqtt-integration--iot-connectivity)
-12. [Performance Optimization](#performance-optimization)
-13. [Monitoring & Logging](#monitoring--logging)
-14. [Testing Strategy](#testing-strategy)
-15. [Deployment Guide](#deployment-guide)
-16. [Troubleshooting & Support](#troubleshooting--support)
-17. [Migration Notes](#migration-notes)
-18. [Future Roadmap](#future-roadmap)
-
----
-
 ## Executive Summary
 
 The RFID Hotel Access Control System is a comprehensive B2B SaaS platform designed for hotel access management using RFID technology. The system has evolved from a monolithic Flask application to a modern, scalable microservices architecture built with Spring Boot and React, featuring complete multi-tenant capabilities for enterprise deployment.
