@@ -97,13 +97,17 @@
 }
 
 .product-item {
-  padding: 24px;
+  padding: 40px;                /* Increased from 24px */
+  min-height: 180px;            /* Ensures bigger tile */
   background-color: var(--secondary-dark);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 8px;           /* Slightly more rounded */
   text-decoration: none;
   color: inherit;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .product-item:hover {
@@ -112,16 +116,16 @@
 }
 
 .product-name {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-size: 24px;              /* Increased from 18px */
+  font-weight: 600;
+  margin-bottom: 16px;
   color: var(--text-primary);
 }
 
 .product-description {
-  font-size: 14px;
+  font-size: 16px;              /* Increased from 14px */
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 /* Footer styles */

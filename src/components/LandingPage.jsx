@@ -5,12 +5,7 @@ import './LandingPage.css';
 const COLORS = [
   '#22C6D4', // teal
   '#B1D007', // lime
-  '#FFB347', // orange
-  '#FF6F61', // coral
-  '#8F6ED5', // purple
-  '#F67280', // pink
-  '#4ECDC4', // turquoise
-  '#5567FF', // blue
+  '#FFB347'  // orange
 ];
 
 const LandingPage = () => {

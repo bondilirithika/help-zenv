@@ -1,7 +1,5 @@
-
-## Overview
-
-A dynamic, auto-generated documentation site built with React and Vite. It is designed to make managing product documentation easy, scalable, and visually appealing. All documentation content is written in Markdown and organized by product folders. Navigation and product metadata are automatically generated using Node.js scripts, so adding new docs or products requires no manual configuration.
+A dynamic, auto-generated documentation site built with React and Vite.
+ It is designed to make managing product documentation easy, scalable, and visually appealing. All documentation content is written in Markdown and organized by product folders. Navigation and product metadata are automatically generated using Node.js scripts, so adding new docs or products requires no manual configuration.
 
 ## Key Features
 
