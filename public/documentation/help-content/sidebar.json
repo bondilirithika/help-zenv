@@ -1,5 +1,16 @@
 [
   {
+    "type": "folder",
+    "name": "auth",
+    "children": [
+      {
+        "type": "file",
+        "name": "Authentication System",
+        "file": "Authentication System.md"
+      }
+    ]
+  },
+  {
     "type": "file",
     "name": "overview",
     "file": "overview.md"

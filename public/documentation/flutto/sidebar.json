@@ -1,28 +1,12 @@
 [
   {
     "type": "folder",
-    "name": "abc",
+    "name": "auth",
     "children": [
       {
         "type": "file",
-        "name": "abc",
-        "file": "abc.md"
-      },
-      {
-        "type": "file",
-        "name": "def",
-        "file": "def.md"
-      },
-      {
-        "type": "folder",
-        "name": "rihtika",
-        "children": [
-          {
-            "type": "file",
-            "name": "docdoc",
-            "file": "docdoc.md"
-          }
-        ]
+        "name": "Authentication System",
+        "file": "Authentication System.md"
       }
     ]
   },

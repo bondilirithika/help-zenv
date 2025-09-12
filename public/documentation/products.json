@@ -18,5 +18,15 @@
     "id": "RFTrack",
     "name": "RFTrack",
     "description": "A B2B SaaS platform designed for hotel access management using RFID technology. "
+  },
+  {
+    "id": "ZenV LMS",
+    "name": "ZenV LMS",
+    "description": "A scalable, user-friendly, and fully customizable LMS designed for enterprises, universities, and training providers."
+  },
+  {
+    "id": "ZenV WiFi6 GPON ONT",
+    "name": "ZenV WiFi6 GPON ONT",
+    "description": "High-performance gateway for ultra-fast fiber broadband and enterprise connectivity."
   }
 ]
