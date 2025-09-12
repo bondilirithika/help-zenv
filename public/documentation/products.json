@@ -5,6 +5,11 @@
     "description": "# Getting Started with Flutto\r"
   },
   {
+    "id": "help-content",
+    "name": "help-content",
+    "description": "\r"
+  },
+  {
     "id": "rft",
     "name": "rft",
     "description": "# Explanation:\r"
