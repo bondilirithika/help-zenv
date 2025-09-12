@@ -1,0 +1,1 @@
+The RFID Hotel Access Control System is a comprehensive B2B SaaS platform designed for hotel access management using RFID technology. The system has evolved from a monolithic Flask application to a modern, scalable microservices architecture built with Spring Boot and React, featuring complete multi-tenant capabilities for enterprise deployment.
