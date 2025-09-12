@@ -106,33 +106,32 @@ const DocumentationPage = () => {
   const buildBreadcrumbs = () => {
     const crumbs = [];
     if (!productId) return crumbs;
-    
+
     // Add product as first crumb - always clickable to product overview
-    crumbs.push({ 
-      label: productId, 
-      to: `/docs/${productId}/overview.md` 
+    crumbs.push({
+      label: decodeURIComponent(productId.replace(/-/g, ' ')),
+      to: `/docs/${productId}/overview.md`
     });
 
     if (activeFile && activeFile !== 'overview.md') {
       // Split the file path into parts (folders/file)
       const parts = activeFile.split('/');
-      
+
       // For each folder in the path, add a non-clickable breadcrumb
-      // For folders, we don't add "to" property, making them non-clickable
       for (let i = 0; i < parts.length - 1; i++) {
         crumbs.push({
-          label: parts[i].replace(/-/g, ' '),
-          to: null  // No link for folders
+          label: decodeURIComponent(parts[i].replace(/-/g, ' ')),
+          to: null // No link for folders
         });
       }
-      
+
       // Last part is the file name (without .md)
       crumbs.push({
-        label: parts[parts.length - 1].replace('.md', '').replace(/-/g, ' '),
-        to: null  // Current page - not clickable
+        label: decodeURIComponent(parts[parts.length - 1].replace('.md', '').replace(/-/g, ' ')),
+        to: null // Current page - not clickable
       });
     }
-    
+
     return crumbs;
   };
 
