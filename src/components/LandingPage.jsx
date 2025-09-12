@@ -37,7 +37,7 @@ const LandingPage = () => {
           <div className="products-list">
             {products.map((product, idx) => (
               <Link
-                to={`/docs/${product.id}/overview`}
+                to={`/docs/${product.id}/overview.md`}
                 className="product-item"
                 key={product.id}
                 style={{ borderLeft: `6px solid ${COLORS[idx % COLORS.length]}` }}
