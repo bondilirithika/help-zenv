@@ -12,6 +12,17 @@
         "type": "file",
         "name": "def",
         "file": "def.md"
+      },
+      {
+        "type": "folder",
+        "name": "rihtika",
+        "children": [
+          {
+            "type": "file",
+            "name": "docdoc",
+            "file": "docdoc.md"
+          }
+        ]
       }
     ]
   },

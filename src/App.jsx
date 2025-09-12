@@ -10,9 +10,7 @@ function App() {
       <div className="app-container">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/docs/:productId" element={<DocumentationPage />} />
-          <Route path="/docs/:productId/:sectionId" element={<DocumentationPage />} />
-          <Route path="/docs/:productId/:sectionId/:subsectionId" element={<DocumentationPage />} />
+          <Route path="/docs/:productId/*" element={<DocumentationPage />} />
         </Routes>
       </div>
     </Router>
