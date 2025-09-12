@@ -174,9 +174,11 @@ table th {
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  padding: 0;
+  object-fit: contain;
   transition: filter 300ms;
 }
 .logo:hover {

@@ -20,7 +20,7 @@ const LandingPage = () => {
       <header className="main-header">
         <div className="header-content">
           <Link to="/" className="logo-link">
-            <img src="/vite.svg" alt="ZenV Innovations Logo" className="logo" />
+            <img src="/logo.png" alt="ZenV Innovations Logo" className="logo" />
             <span className="logo-text">ZenV Innovations</span>
           </Link>
         </div>
