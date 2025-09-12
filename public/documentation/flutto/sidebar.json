@@ -5,6 +5,11 @@
     "children": [
       {
         "type": "file",
+        "name": "Admin guide",
+        "file": "Admin guide.md"
+      },
+      {
+        "type": "file",
         "name": "Authentication System",
         "file": "Authentication System.md"
       }
